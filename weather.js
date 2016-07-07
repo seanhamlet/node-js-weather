@@ -1,3 +1,9 @@
+// Problem: We need a simple way to look at the current weather report
+// Solution: Use Node.js to connect to openweathermap.org's API to get weather
+//           information to print out
+
+// API key is required for openweathermap's API
+// API key is located in config.json file
 var json = require('./config.json');
 var apikey = json.apikey;
 var http = require("http");
