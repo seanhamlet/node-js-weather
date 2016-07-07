@@ -10,7 +10,7 @@ var apikey = json.apikey;
 var http = require("http");
 var printer = require("./printer");
 
-function getWeather(zipcode) {
+function getWeather(zipcode, temperatureUnits) {
   // Connect to API url (http://api.openweathermap.org/data/2.5/weather?zip=90210,us&appid=1111111)
   var url = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zipcode +
             ',us&appid=' + apikey;
@@ -33,11 +33,11 @@ function getWeather(zipcode) {
       // Parse the data
       var weather = JSON.parse(body);
       //Print the data
-      printer.printMessage(weather.name, weather.weather[0].main, weather.main.temp);
     } catch(error) {
       // Parse error
       console.log("There was an error parsing the data")
     }
+          printer.printMessage(temperatureUnits, weather.name, weather.weather[0].main, weather.main.temp);
     });
 
     // Connection error

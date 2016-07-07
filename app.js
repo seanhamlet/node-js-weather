@@ -1,9 +1,10 @@
 var weather = require("./weather");
+var temperatureUnits = process.argv[2];
+var zipcodes = process.argv.slice(3);
 
-var zipcodes = process.argv.slice(2);
-zipcodes.forEach(weather.getWeather);
+zipcodes.forEach(function(zipcode) {
+  weather.getWeather(zipcode, temperatureUnits);
+});
 
 // Idea:
-// Have user give zipcode for location
-// as well as 'current', '5-day', 'weekend', or some other string.
-// also have them give units of temperature
+// Have user give 'current', '5-day', 'weekend', or some other string.
