@@ -29,8 +29,20 @@ function getWeather(zipcode) {
 
     // Print out json object once finished capturing weather data
     response.on('end', function() {
+      try {
+      // Parse the data
       var weather = JSON.parse(body);
-      console.dir(weather);
+      //Print the data
+      printer.printMessage(weather.name, weather.weather[0].main, weather.main.temp);
+    } catch(error) {
+      // Parse error
+      console.log("There was an error parsing the data")
+    }
+    });
+
+    // Connection error
+    response.on('error', function(error) {
+      printer.printError({message: "There was an error with the connection. (" + error.message + ")"});
     });
 
   });
