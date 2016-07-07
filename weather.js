@@ -6,12 +6,15 @@
 // API key is located in config.json file
 var json = require('./config.json');
 var apikey = json.apikey;
+
 var http = require("http");
+var printer = require("./printer");
 
 function getWeather(zipcode) {
   // Connect to API url (http://api.openweathermap.org/data/2.5/weather?zip=90210,us&appid=1111111)
   var url = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zipcode +
             ',us&appid=' + apikey;
+
   var request = http.get(url, function(response) {
     var body = "";
 
