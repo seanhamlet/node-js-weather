@@ -46,7 +46,6 @@ function getWeather(zipcode) {
     });
 
   });
-  console.log(zipcode);
 }
 
 module.exports.getWeather = getWeather;
