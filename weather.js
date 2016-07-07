@@ -17,9 +17,6 @@ function getWeather(zipcode, temperatureUnits) {
 
   var request = http.get(url, function(response) {
     var body = "";
-    if (response.statusCode === 401){
-      console.log('Problem with request. Wrong URL or invalid API key.');
-    }
 
     // Read the weather data
     // This function ensures that all weather data is collected before parsing
@@ -29,15 +26,19 @@ function getWeather(zipcode, temperatureUnits) {
 
     // Print out json object once finished capturing weather data
     response.on('end', function() {
-      try {
-      // Parse the data
-      var weather = JSON.parse(body);
-      //Print the data
-    } catch(error) {
-      // Parse error
-      console.log("There was an error parsing the data")
-    }
+      if (response.statusCode === 200) {
+        try {
+          // Parse the data
+          var weather = JSON.parse(body);
+          //Print the data
           printer.printMessage(temperatureUnits, weather.name, weather.weather[0].main, weather.main.temp);
+        } catch(error) {
+          // Parse error
+          printer.printError({message: "There was an error with parsing the data (" + error.message + ")"});
+        }
+      } else {
+        printer.printError({message: "There was an error getting the weather data for " + zipcode});
+      }
     });
 
     // Connection error
