@@ -12,9 +12,11 @@ Example query: `node app.js F 90210`
 In the above example, `F` is the desired temperature units and `90210` is the desired location as a US zipcode.
 
 Example output:  
-`Location: Beverly Hills`    
-`Current Weather: Mist`  
-`Current Temperature: 64°F`
+```javascript
+Location: Beverly Hills    
+Current Weather: Mist  
+Current Temperature: 64°F
+```
 
 ### Getting started
 
