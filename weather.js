@@ -17,6 +17,9 @@ function getWeather(zipcode) {
 
   var request = http.get(url, function(response) {
     var body = "";
+    if (response.statusCode === 401){
+      console.log('Problem with request. Wrong URL or invalid API key.');
+    }
 
     // Read the weather data
     // This function ensures that all weather data is collected before parsing
