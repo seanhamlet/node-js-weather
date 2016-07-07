@@ -31,4 +31,4 @@ function getWeather(zipcode) {
   console.log(zipcode);
 }
 
-module.exports.get = getWeather;
+module.exports.getWeather = getWeather;
