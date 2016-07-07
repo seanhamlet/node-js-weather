@@ -1,7 +1,7 @@
 // Print current weather report
 function printMessage(temperatureUnits, location, main, temperature) {
   var temperature = convertTemperature(temperature, temperatureUnits);
-  var message = "Location: " + location + "\nCurrent Weather: " + main + "\nCurrent Temperature: " + temperature;
+  var message = "Location: " + location + "\nCurrent Weather: " + main + "\nCurrent Temperature: " + temperature + "\n";
   console.log(message);
 }
 
