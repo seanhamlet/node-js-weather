@@ -1,0 +1,20 @@
+{
+  "name": "node-js-weather",
+  "version": "1.0.0",
+  "description": "Nodejs Weather App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanmhamlet/node-js-weather.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seanmhamlet/node-js-weather/issues"
+  },
+  "homepage": "https://github.com/seanmhamlet/node-js-weather#readme",
+  "engines": {"node": "6.11.1"}
+}
